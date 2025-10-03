@@ -1891,6 +1891,8 @@ SELECT ts_debug('spanish', 'En un lugar de la Mancha, de cuyo nombre no quiero a
 
 Más info en: <https://www.cybertec-postgresql.com/en/postgresql-more-performance-for-like-and-ilike-statements/>
 
+### SEÑALADOR
+
 ### Vistas <a name="vistas"></a>
 
 Las vistas son piezas esenciales de un SGBD Relacional que junto con los
