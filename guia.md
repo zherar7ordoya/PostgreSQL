@@ -3,7 +3,7 @@
 
 Revisión 2021
 
-<img src="../imagenes/postgresql-logo.png" alt="cv" width="250"/><br>
+<img src="./imagenes/postgresql-logo.png" alt="cv" width="250"/><br>
 
 ## Indice
 
