@@ -64,13 +64,27 @@ async function main() {
         console.error('Error updating user:', error.meta.cause);
     } */
 
-    const users = await prisma.user.findMany(
+    /* const users = await prisma.user.findMany(
         {
             where: {
                 name: { equals: 'Mary' }
             }
         });
-    console.log('Users Found:', users);
+    console.log('Users Found:', users); */
+
+
+    const user = await prisma.user.upsert({
+        where: { email: 'ryan@example.com' },
+        create: {
+            name: 'John',
+            email: 'john@example.com',
+        },
+        update: {
+            lastname: 'Carter'
+        }
+    });
+
+    console.log('Upserted User:', user);
 }
 
 main();

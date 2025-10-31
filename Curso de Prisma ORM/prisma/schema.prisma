@@ -2,18 +2,29 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
-  output = "../node_modules/.prisma/client"
+    provider = "prisma-client-js"
+    output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
 }
 
 model User {
-  id        Int @id @default(autoincrement())
-  email     String @unique
-  name      String
-  lastname  String?
+    id       Int     @id @default(autoincrement())
+    email    String  @unique
+    name     String
+    lastname String?
+    // Relation fields
+    posts    Post[]
+}
+
+model Post {
+    id       Int     @id @default(autoincrement())
+    title    String
+    content  String?
+    // Relation fields
+    authorId Int
+    author   User    @relation(fields: [authorId], references: [id])
 }
