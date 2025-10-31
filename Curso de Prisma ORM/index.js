@@ -50,21 +50,27 @@ async function main() {
         console.error('Error deleting user.');
     } */
 
-    try {
-        const updatedUser = await prisma.user.update({
+    /* try {
+        const counter = await prisma.user.updateMany({
             where: {
-                id: 7
+                name: 'Mary'
             },
             data: {
-                name: 'John',
-                lastname: 'Smith',
-                email: 'john.smith@example.com'
+                lastname: 'Peretz'
             }
         });
-        console.log('Updated User:', updatedUser);
+        console.log('Updated User Count:', counter.count);
     } catch (error) {
         console.error('Error updating user:', error.meta.cause);
-    }
+    } */
+
+    const users = await prisma.user.findMany(
+        {
+            where: {
+                name: { equals: 'Mary' }
+            }
+        });
+    console.log('Users Found:', users);
 }
 
 main();
